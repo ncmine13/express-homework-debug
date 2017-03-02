@@ -5,13 +5,6 @@ var watch = require('gulp-watch');
 // watch task listen for saves on a specific file
 //then runs, the task you want
 
-gulp.task('watch', function(){
-  // first argument is an array of files
-  // second argument is an array of tasks to run
-  // * is telling gulp to watch every file
-  // in the folder with an extension of .less
-  gulp.watch(['./styles/*.less'], ['compillle-less'])
-})
 
 gulp.task('compile-less', function(){
   // ./ starts you at the same level as whatever
@@ -26,5 +19,12 @@ gulp.task('compile-less', function(){
 // default name, second arg is an array of tasks to be run
 gulp.task('default', ['compile-less', 'watch'])
 
+//lessc styles/style.less styles/style.css
 
-
+gulp.task('watch', function(){
+  // first argument is an array of files
+  // second argument is an array of tasks to run
+  // * is telling gulp to watch every file
+  // in the folder with an extension of .less
+  gulp.watch(['./styles/style.less'], ['compile-less'])
+})
